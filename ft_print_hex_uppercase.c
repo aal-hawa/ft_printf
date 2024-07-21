@@ -6,7 +6,7 @@
 /*   By: Anas Al Hawamda <aal-hawa@student.42abu    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 20:43:04 by Anas Al Haw       #+#    #+#             */
-/*   Updated: 2024/07/21 16:51:08 by Anas Al Haw      ###   ########.fr       */
+/*   Updated: 2024/07/21 17:36:23 by Anas Al Haw      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	ft_puthexuppercase(unsigned int hexupper, char flag)
 
 	i = 0;
 	if (flag == '#')
-		i+=	ft_putstr("0X");
+		i+=	ft_putstr("0X", 0, 0);
 	if (hexupper == 0)
 	{
 		i+= ft_putchr('0');

@@ -6,7 +6,7 @@
 /*   By: Anas Al Hawamda <aal-hawa@student.42abu    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 18:26:28 by Anas Al Haw       #+#    #+#             */
-/*   Updated: 2024/07/21 16:09:19 by Anas Al Haw      ###   ########.fr       */
+/*   Updated: 2024/07/21 17:20:00 by Anas Al Haw      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,13 @@ int	ft_putnbr(int n, int count_len, char flag)
 		write (1, "-2147483648", 11);
 		return (11);
 	}
+	len_wr += bonus_befor_wr(n, count_len, flag);
 	if (n < 0)
 	{
 		write(1, "-", 1);
 		n = -n;
+		len_wr++;
 	}
-	len_wr += bonus_befor_wr(n, count_len, flag);
 	len_wr += recursive_nbr(n, &i);
 	len_wr = bonus_after_wr(count_len, flag, len_wr);
 	return(len_wr);

@@ -6,7 +6,7 @@
 /*   By: Anas Al Hawamda <aal-hawa@student.42abu    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 15:46:20 by Anas Al Haw       #+#    #+#             */
-/*   Updated: 2024/07/21 16:34:49 by Anas Al Haw      ###   ########.fr       */
+/*   Updated: 2024/07/21 17:57:47 by Anas Al Haw      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int bonus_befor_wr(int n, int count_len, char flag)
 	
 	deff_len = 0;
 	len_wr = 0;
-	if (count_len && (flag == '0' || flag == '.'))
+	if (count_len && (flag == '0' || flag == '.'|| flag == 'L'))
 	{
 		len_wr = len_itoa(n);
 		count_len -= len_wr;
@@ -47,8 +47,17 @@ int bonus_befor_wr(int n, int count_len, char flag)
 		while (count_len)
 		{
 			count_len--;
-			ft_putchr('0');
+			if (flag == 'L')
+				ft_putchr(' ');
+			else
+				ft_putchr('0');
+
 		}
+	}
+	else if (n > 0 && (flag == ' ' || flag == '+'))
+	{
+		ft_putchr(flag);
+		return (1);
 	}
 	return (deff_len);
 }

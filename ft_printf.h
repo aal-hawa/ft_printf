@@ -6,7 +6,7 @@
 /*   By: Anas Al Hawamda <aal-hawa@student.42abu    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 14:50:05 by Anas Al Haw       #+#    #+#             */
-/*   Updated: 2024/07/21 16:46:56 by Anas Al Haw      ###   ########.fr       */
+/*   Updated: 2024/07/21 17:34:59 by Anas Al Haw      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@
 #include <stdlib.h>
 #include <stdarg.h>
 
-int	ft_putstr(char *s);
+int	ft_putstr(char *s, int count_len, char flag);
 int	ft_putchr(char c);
+int	ft_putchr_format(char c, int count_len, char flag);
 int	ft_putnbr(int n, int count_len, char flag);
 int	ft_printf(const char *format, ...);
 int ft_putpointer(void * ptr);

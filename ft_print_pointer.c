@@ -6,7 +6,7 @@
 /*   By: Anas Al Hawamda <aal-hawa@student.42abu    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 17:23:52 by Anas Al Haw       #+#    #+#             */
-/*   Updated: 2024/07/20 20:33:31 by Anas Al Haw      ###   ########.fr       */
+/*   Updated: 2024/07/21 17:36:44 by Anas Al Haw      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	ft_putpointer(void * ptr)
 
 	i = 0;
 	address = (unsigned long long) ptr;
-	i += ft_putstr("0x");
+	i += ft_putstr("0x", 0, 0);
 	if (address == 0)
 	{
 		ft_putchr('0');

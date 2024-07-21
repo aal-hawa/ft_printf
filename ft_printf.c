@@ -6,7 +6,7 @@
 /*   By: Anas Al Hawamda <aal-hawa@student.42abu    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 14:47:14 by Anas Al Haw       #+#    #+#             */
-/*   Updated: 2024/07/21 16:57:59 by Anas Al Haw      ###   ########.fr       */
+/*   Updated: 2024/07/21 18:00:40 by Anas Al Haw      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ int flags_bonus(const char *format, char flag)
 	long count_len;
 
 	count_len = 0;
-	format++;
-	
-	if (flag == '-' || flag == '0'|| flag == '.')
+	if (flag != 'L')
+		format++;
+	if (flag == '-' || flag == '0'|| flag == '.'|| flag == 'L')
 	{
 		while (*format >= '0' && *format <= '9')
 		{
@@ -50,15 +50,10 @@ int	ft_printf(const char *format, ...)
 		{
 			if(*format == '%')
 				format++;
-			if(isflag_char == 2)
-			{
-				isflag_char = 0;
-				flag = '\0';
-			}
 			if (*format == 'c')
-				i+= ft_putchr(va_arg(arg, int));
+				i+= ft_putchr_format(va_arg(arg, int), count_len, flag);
 			else if(*format == 's')
-				i+= ft_putstr(va_arg(arg, char *));
+				i+= ft_putstr(va_arg(arg, char *), count_len, flag);
 			else if(*format == 'p')
 				i+= ft_putpointer(va_arg(arg, void *));
 			else if(*format == 'd' || *format == 'i')
@@ -71,24 +66,28 @@ int	ft_printf(const char *format, ...)
 				i+= ft_puthexuppercase(va_arg(arg,  unsigned int), flag); //unsigned
 			else if(*format == '%')
 				i+= ft_putchr('%');
-			else if (*format == '-' || *format == '0' || *format == '.')
+			else if (*format == '-' || *format == '0' || *format == '.' ||
+					*format == '#' || *format == ' ' || *format == '+')
 			{
 				flag = *format;
-				count_len = flags_bonus(&(*format), *format);
+				isflag_char = 1;
+				if (*format == '-' || *format == '0' || *format == '.')
+					count_len = flags_bonus(&(*format), *format);
 			}
-			else if (*format == '#' || *format == ' ' || *format == '+')
+			else if (*format >= '1' && *format <= '9')
 			{
-				flag = *format;
-				isflag_char = 2;
+				flag = 'L';
+				isflag_char = 1;
+				count_len = flags_bonus(&(*format), flag);
 			}
-			if(isflag_char && count_len)
+			if (isflag_char == 1)
+				isflag_char++;
+			else if(isflag_char == 2)
 			{
 				isflag_char = 0;
 				count_len = 0;
 				flag = '\0';
 			}
-			else if(!isflag_char && count_len)
-				isflag_char = 1;
 		}
 		else
 			i+= ft_putchr(*format);
