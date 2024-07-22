@@ -6,7 +6,7 @@
 /*   By: Anas Al Hawamda <aal-hawa@student.42abu    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 17:23:52 by Anas Al Haw       #+#    #+#             */
-/*   Updated: 2024/07/22 13:44:34 by Anas Al Haw      ###   ########.fr       */
+/*   Updated: 2024/07/22 14:01:30 by Anas Al Haw      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 int	put_hex_pointer(unsigned long long n, int *i)
 {
-	char c;
-	
+	char	c;
+
 	if (n > 16)
 	{
-		if(n / 16 > 0)
+		if (n / 16 > 0)
 			put_hex_pointer(n / 16, i);
 		put_hex_pointer(n % 16, i);
 	}
@@ -46,11 +46,11 @@ int	len_itoa_16(unsigned long long n)
 	return (len);
 }
 
-int	ft_putpointer(void * ptr,  int count_len, char flag)
+int	ft_putpointer(void *ptr, int count_len, char flag)
 {
-	unsigned long long address;
-	int	i;
-	
+	unsigned long long	address;
+	int					i;
+
 	i = 0;
 	address = (unsigned long long) ptr;
 	i += bonus_befor_wr((len_itoa_16(address) + 2), count_len, flag, 16);
