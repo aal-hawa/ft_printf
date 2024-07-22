@@ -6,7 +6,7 @@
 /*   By: Anas Al Hawamda <aal-hawa@student.42abu    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 14:47:14 by Anas Al Haw       #+#    #+#             */
-/*   Updated: 2024/07/21 18:00:40 by Anas Al Haw      ###   ########.fr       */
+/*   Updated: 2024/07/22 13:52:16 by Anas Al Haw      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,11 @@ int	ft_printf(const char *format, ...)
 			else if(*format == 's')
 				i+= ft_putstr(va_arg(arg, char *), count_len, flag);
 			else if(*format == 'p')
-				i+= ft_putpointer(va_arg(arg, void *));
+				i+= ft_putpointer(va_arg(arg, void *), count_len, flag);
 			else if(*format == 'd' || *format == 'i')
 				i+= ft_putnbr(va_arg(arg, int), count_len, flag);
 			else if(*format == 'u')
-				i+= ft_put_unsigned(va_arg(arg, unsigned int)); //unsigned
+				i+= ft_put_unsigned(va_arg(arg, unsigned int), count_len, flag); //unsigned
 			else if(*format == 'x')
 				i+= ft_puthexlowercase(va_arg(arg,  unsigned int), flag); //unsigned
 			else if(*format == 'X')
