@@ -6,7 +6,7 @@
 /*   By: Anas Al Hawamda <aal-hawa@student.42abu    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 18:26:28 by Anas Al Haw       #+#    #+#             */
-/*   Updated: 2024/07/22 14:02:28 by Anas Al Haw      ###   ########.fr       */
+/*   Updated: 2024/07/22 15:42:01 by Anas Al Haw      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	ft_putnbr(int n, int count_len, char flag)
 	int	i;
 
 	i = 0;
-	i += bonus_befor_wr(n, count_len, flag, 10);
+	i += bonus_befor_wr(n, count_len, flag, 0);
 	if (n == -2147483648)
 	{
 		write (1, "-2147483648", 11);

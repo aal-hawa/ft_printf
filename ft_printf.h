@@ -6,7 +6,7 @@
 /*   By: Anas Al Hawamda <aal-hawa@student.42abu    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 14:50:05 by Anas Al Haw       #+#    #+#             */
-/*   Updated: 2024/07/22 14:12:39 by Anas Al Haw      ###   ########.fr       */
+/*   Updated: 2024/07/22 19:02:57 by Anas Al Haw      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,11 @@ int	ft_putchr_format(char c, int count_len, char flag);
 int	ft_putnbr(int n, int count_len, char flag);
 int	ft_printf(const char *format, ...);
 int	ft_putpointer(void *ptr, int count_len, char flag);
-int	ft_put_unsigned(unsigned int n, int count_len, char flag);
-int	ft_puthexlowercase(unsigned int hexlower, char flag);
-int	ft_puthexuppercase(unsigned int hexupper, char flag);
-int	bonus_befor_wr(int n, int count_len, char flag, int divide);
+int	ft_pt_un(unsigned int n, int count_len, char flag);
+int	ft_hxlwr(unsigned int hexlower, int count_len, char flag);
+int	ft_hxupr(unsigned int hexupper, int count_len, char flag);
+int	bonus_befor_wr(int n, int count_len, char flag, int ismake_len);
 int	bonus_after_wr(int count_len, char flag, int len_wr);
+int	len_itoa_hex(unsigned int n);
 
 #endif

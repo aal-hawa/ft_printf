@@ -6,7 +6,7 @@
 /*   By: Anas Al Hawamda <aal-hawa@student.42abu    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 17:23:52 by Anas Al Haw       #+#    #+#             */
-/*   Updated: 2024/07/22 14:01:30 by Anas Al Haw      ###   ########.fr       */
+/*   Updated: 2024/07/22 15:41:22 by Anas Al Haw      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	ft_putpointer(void *ptr, int count_len, char flag)
 
 	i = 0;
 	address = (unsigned long long) ptr;
-	i += bonus_befor_wr((len_itoa_16(address) + 2), count_len, flag, 16);
+	i += bonus_befor_wr((len_itoa_16(address) + 2), count_len, flag, 1);
 	i += ft_putstr("0x", 0, 0);
 	if (address == 0)
 	{

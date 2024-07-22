@@ -6,7 +6,7 @@
 /*   By: Anas Al Hawamda <aal-hawa@student.42abu    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 15:46:20 by Anas Al Haw       #+#    #+#             */
-/*   Updated: 2024/07/22 13:59:11 by Anas Al Haw      ###   ########.fr       */
+/*   Updated: 2024/07/22 18:21:40 by Anas Al Haw      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,20 +32,31 @@ int	len_itoa(int n)
 	return (len);
 }
 
-int	bonus_befor_wr(int n, int count_len, char flag, int divide)
+int	len_itoa_hex(unsigned int n)
 {
-	int	len_wr;
+	int	len;
+
+	len = 0;
+	if (n == 0)
+		return (1);
+	while (n > 0)
+	{
+		len++;
+		n /= 16;
+	}
+	return (len);
+}
+
+int	bonus_befor_wr(int n, int count_len, char flag, int ismake_len)
+{
 	int	deff_len;
 
 	deff_len = 0;
-	len_wr = 0;
-	if (count_len && (flag == '0' || flag == '.' || flag == 'L'))
+	if (flag == '0' || flag == '.' || flag == 'L')
 	{
-		if (divide == 10)
-			len_wr = len_itoa(n);
-		else
-			len_wr = n;
-		count_len -= len_wr;
+		if (ismake_len == 0)
+			n = len_itoa(n);
+		count_len -= n;
 		deff_len = count_len;
 		while (count_len)
 		{

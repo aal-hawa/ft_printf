@@ -6,7 +6,7 @@
 /*   By: Anas Al Hawamda <aal-hawa@student.42abu    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 19:03:12 by Anas Al Haw       #+#    #+#             */
-/*   Updated: 2024/07/22 14:09:54 by Anas Al Haw      ###   ########.fr       */
+/*   Updated: 2024/07/22 18:05:30 by Anas Al Haw      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,12 @@ int	recursive_uns_nbr(unsigned int n, int *i)
 	return (*i);
 }
 
-int	ft_put_unsigned(unsigned int n, int count_len, char flag)
+int	ft_pt_un(unsigned int n, int count_len, char flag)
 {
 	int	i;
 
 	i = 0;
-	i += bonus_befor_wr(n, count_len, flag, 10);
+	i += bonus_befor_wr(n, count_len, flag, 0);
 	if (n == 0)
 	{
 		ft_putchr('0');

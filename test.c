@@ -5,8 +5,8 @@ int main()
 {
 	int nmb = 255;
 	char *str = "cdfwsfcv";
-	printf("\t\t%d\n", printf("%-p", &nmb));
-	printf("\t\t%d\n",ft_printf("%-p", &nmb));
+	printf("\t\t%d\n", printf("%10d::", nmb));
+	printf("\t\t%d\n",ft_printf("%10d::", nmb));
     // printf("The unsigned number is: %u\n", 4294962095U);
     // ft_printf("The unsigned number is: %u\n", 4294962095U);
 	return (0);
