@@ -6,7 +6,7 @@
 /*   By: Anas Al Hawamda <aal-hawa@student.42abu    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 17:23:52 by Anas Al Haw       #+#    #+#             */
-/*   Updated: 2024/07/22 15:41:22 by Anas Al Haw      ###   ########.fr       */
+/*   Updated: 2024/07/24 20:52:31 by Anas Al Haw      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,22 +46,37 @@ int	len_itoa_16(unsigned long long n)
 	return (len);
 }
 
-int	ft_putpointer(void *ptr, int count_len, char flag)
+int	ptr_nil(int *i_ct_isfg, char flag, int i)
+{
+	i += bonus_befor_wr(5, i_ct_isfg, flag, 1);
+	i += ft_putstr("(nil)", 0, 0);
+	i = bonus_after_wr(i_ct_isfg, flag, i);
+	return (i);
+}
+
+int	ft_putpointer(void *ptr, int *i_ct_isfg, char flag)
 {
 	unsigned long long	address;
 	int					i;
 
 	i = 0;
+	if (!ptr)
+		return (ptr_nil(i_ct_isfg, flag, i));
 	address = (unsigned long long) ptr;
-	i += bonus_befor_wr((len_itoa_16(address) + 2), count_len, flag, 1);
-	i += ft_putstr("0x", 0, 0);
-	if (address == 0)
+	if ((flag == '0' || flag == '.'))
 	{
-		ft_putchr('0');
-		i++;
-		return (i);
+		i += ft_putstr("0x", i_ct_isfg, 0);
+		if ((flag == '0' || flag == '.'))
+			i += bonus_befor_wr((len_itoa_16(address)), i_ct_isfg, flag, 1);
 	}
+	else
+	{
+		i += bonus_befor_wr((len_itoa_16(address) + 2), i_ct_isfg, flag, 1);
+		i += ft_putstr("0x", i_ct_isfg, 0);
+	}
+	if (address == 0)
+		return (i + ft_putchr('0'));
 	i = put_hex_pointer(address, &i);
-	i = bonus_after_wr(count_len, flag, i);
+	i = bonus_after_wr(i_ct_isfg, flag, i);
 	return (i);
 }

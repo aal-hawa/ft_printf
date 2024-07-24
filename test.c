@@ -3,11 +3,11 @@
 
 int main()
 {
-	int nmb = 255;
-	char *str = "cdfwsfcv";
-	printf("\t\t%d\n", printf("%10d::", nmb));
-	printf("\t\t%d\n",ft_printf("%10d::", nmb));
-    // printf("The unsigned number is: %u\n", 4294962095U);
-    // ft_printf("The unsigned number is: %u\n", 4294962095U);
+	int nmb = 42949;
+	char *str  ;
+	char c = 'a';
+	char *jhj = "%d";
+	printf("\t\t%d\n", printf(jhj, nmb));
+	printf("\t\t%d\n",ft_printf(jhj,nmb));
 	return (0);
 }

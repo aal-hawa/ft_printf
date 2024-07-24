@@ -1,5 +1,5 @@
 NAME = libftprintf.a
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 SRC = ft_print_chr.c ft_print_int.c ft_print_str.c ft_printf.c ft_print_pointer.c \
@@ -23,4 +23,6 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re 
+bonus: all
+
+.PHONY: all clean fclean re bonus

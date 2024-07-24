@@ -6,7 +6,7 @@
 /*   By: Anas Al Hawamda <aal-hawa@student.42abu    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 18:26:28 by Anas Al Haw       #+#    #+#             */
-/*   Updated: 2024/07/22 15:42:01 by Anas Al Haw      ###   ########.fr       */
+/*   Updated: 2024/07/23 18:47:15 by Anas Al Haw      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,12 @@ int	recursive_nbr(int n, int *i)
 	return (*i);
 }
 
-int	ft_putnbr(int n, int count_len, char flag)
+int	ft_putnbr(int n, int *i_ct_isfg, char flag)
 {
 	int	i;
 
 	i = 0;
-	i += bonus_befor_wr(n, count_len, flag, 0);
+	i += bonus_befor_wr(n, i_ct_isfg, flag, 0);
 	if (n == -2147483648)
 	{
 		write (1, "-2147483648", 11);
@@ -50,6 +50,6 @@ int	ft_putnbr(int n, int count_len, char flag)
 		i++;
 	}
 	i = recursive_nbr(n, &i);
-	i = bonus_after_wr(count_len, flag, i);
+	i = bonus_after_wr(i_ct_isfg, flag, i);
 	return (i);
 }
