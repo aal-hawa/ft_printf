@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_hex_uppercase.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Anas Al Hawamda <aal-hawa@student.42abu    +#+  +:+       +#+        */
+/*   By: aal-hawa <aal-hawa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 20:43:04 by Anas Al Haw       #+#    #+#             */
-/*   Updated: 2024/07/24 20:47:26 by Anas Al Haw      ###   ########.fr       */
+/*   Updated: 2024/07/25 17:34:50 by aal-hawa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ int	put_hex_upper(unsigned int n, int *i)
 {
 	char	c;
 
-	if (n > 16)
+	if (n > 15)
 	{
-		if (n / 16 > 0)
+		if (n / 15 > 0)
 			put_hex_upper(n / 16, i);
 		put_hex_upper(n % 16, i);
 	}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_pointer.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Anas Al Hawamda <aal-hawa@student.42abu    +#+  +:+       +#+        */
+/*   By: aal-hawa <aal-hawa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 17:23:52 by Anas Al Haw       #+#    #+#             */
-/*   Updated: 2024/07/24 20:52:31 by Anas Al Haw      ###   ########.fr       */
+/*   Updated: 2024/07/25 17:31:02 by aal-hawa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ int	put_hex_pointer(unsigned long long n, int *i)
 {
 	char	c;
 
-	if (n > 16)
+	if (n > 15)
 	{
-		if (n / 16 > 0)
+		if (n / 15 > 0)
 			put_hex_pointer(n / 16, i);
 		put_hex_pointer(n % 16, i);
 	}
@@ -49,7 +49,7 @@ int	len_itoa_16(unsigned long long n)
 int	ptr_nil(int *i_ct_isfg, char flag, int i)
 {
 	i += bonus_befor_wr(5, i_ct_isfg, flag, 1);
-	i += ft_putstr("(nil)", 0, 0);
+	i += ft_putstr("0x0", 0, 0);
 	i = bonus_after_wr(i_ct_isfg, flag, i);
 	return (i);
 }

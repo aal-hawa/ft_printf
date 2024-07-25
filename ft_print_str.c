@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_str.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Anas Al Hawamda <aal-hawa@student.42abu    +#+  +:+       +#+        */
+/*   By: aal-hawa <aal-hawa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 18:26:34 by Anas Al Haw       #+#    #+#             */
-/*   Updated: 2024/07/24 20:32:21 by Anas Al Haw      ###   ########.fr       */
+/*   Updated: 2024/07/25 17:15:16 by aal-hawa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	print_null(char *s, int count_len, char flag)
 	}
 	i = 6;
 	i += bonus_befor_wr(6, &count_len, flag, 1);
-	write(1, "(NULL)", 6);
+	write(1, "(null)", 6);
 	i = bonus_after_wr(&count_len, flag, i);
 	return (i);
 }
