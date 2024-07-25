@@ -66,7 +66,7 @@ int	count_nut_zero(int count, int deff_len, int *i_cnt_isflag, char flag)
 			break ;
 		}
 		count--;
-		if (flag == 'L')
+		if (flag == 'L' || i_cnt_isflag[3] == 2)
 			ft_putchr(' ');
 		else
 			ft_putchr('0');
@@ -85,8 +85,10 @@ int	bonus_befor_wr(int n, int *i_cnt_isflag, char flag, int ismake_len)
 	{
 		if (ismake_len == 0)
 			n = len_itoa(n);
-		if (i_cnt_isflag[1] < n && !i_cnt_isflag[3])
+		if (i_cnt_isflag[1] < n && i_cnt_isflag[3] != 1)
 			return (0);
+		else if (i_cnt_isflag[1] < n && i_cnt_isflag[3] == 1)
+			return (ft_putchr('+'));
 		if (count >= n)
 			count -= n;
 		deff_len = count;

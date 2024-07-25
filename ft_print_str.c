@@ -44,12 +44,11 @@ int	ft_putstr(char *s, int *i_ct_isfg, char flag)
 	if (!i_ct_isfg)
 		return (print_null(s, -1, -1));
 	if (!s)
-	{
-		i = print_null(s, i_ct_isfg[1], flag);
-		return (i);
-	}
+		return (print_null(s, i_ct_isfg[1], flag));
 	while (s[len])
 		len++;
+	if (i_ct_isfg[3] == 1)
+		i_ct_isfg[3] = 2;
 	i += bonus_befor_wr(len, i_ct_isfg, flag, 1);
 	while (*s)
 	{

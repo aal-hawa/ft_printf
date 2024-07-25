@@ -52,7 +52,7 @@ char	if_bonus(const char *format, char flag, int *i_cnt_isflag)
 	{
 		if (flag == '+')
 			i_cnt_isflag[3] = 1;
-		if (flag == '#')
+		if (flag == '#' || flag == ' ')
 			i_cnt_isflag[3] = 2;
 		flag = *format;
 		i_cnt_isflag[2] = 1;
@@ -63,7 +63,7 @@ char	if_bonus(const char *format, char flag, int *i_cnt_isflag)
 	{
 		if (flag == '+')
 			i_cnt_isflag[3] = 1;
-		if (flag == '#')
+		if (flag == '#' || flag == ' ')
 			i_cnt_isflag[3] = 2;
 		flag = 'L';
 		i_cnt_isflag[2] = 1;
