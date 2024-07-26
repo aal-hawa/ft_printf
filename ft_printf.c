@@ -3,126 +3,79 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aal-hawa <aal-hawa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Anas Al Hawamda <aal-hawa@student.42abu    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 14:47:14 by Anas Al Haw       #+#    #+#             */
-/*   Updated: 2024/07/25 18:38:18 by aal-hawa         ###   ########.fr       */
+/*   Updated: 2024/07/26 17:06:28 by Anas Al Haw      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	flags_bonus(const char *format, char flag)
+int	ft_format(va_list arg, const char *format)
 {
-	long	count_len;
+	int	i;
 
-	count_len = 0;
-	if (flag != 'L')
-		format++;
-	if (flag == '-' || flag == '0' || flag == '.' || flag == 'L')
+	i = 0;
+	format++;
+	if (*format == 'c')
+		i = ft_putchr(va_arg(arg, int));
+	else if (*format == 's')
+		i = ft_putstr(va_arg(arg, char *));
+	else if (*format == 'p')
+		i = ft_putpointer(va_arg(arg, void *));
+	else if (*format == 'd' || *format == 'i')
+		i = ft_putnbr(va_arg(arg, int));
+	else if (*format == 'u')
+		i = ft_pt_un(va_arg(arg, unsigned int));
+	else if (*format == 'x')
+		i = ft_hxlwr(va_arg(arg, unsigned int));
+	else if (*format == 'X')
+		i = ft_hxupr(va_arg(arg, unsigned int));
+	else if (*format == '%')
+		i = ft_putchr('%');
+	return (i);
+}
+
+int	ft_while_format(va_list arg, const char *format)
+{
+	int		i;
+	int		i_all;
+
+	i = 0;
+	i_all = 0;
+	while (*format)
 	{
-		while (*format >= '0' && *format <= '9')
+		if (*format == '%')
 		{
-			count_len *= 10;
-			count_len += *format - '0';
+			i = ft_format(arg, format);
+			if (i == -1)
+				return (-1);
+			i_all += i;
 			format++;
 		}
-	}
-	return ((int) count_len);
-}
-
-char	check_after_bonus(char flag, int *i_cnt_isflag)
-{
-	if (i_cnt_isflag[2] == 1)
-		i_cnt_isflag[2]++;
-	else if (i_cnt_isflag[2] == 2)
-	{
-		i_cnt_isflag[2] = 0;
-		i_cnt_isflag[1] = 0;
-		i_cnt_isflag[3] = 0;
-		flag = '\0';
-	}
-	return (flag);
-}
-
-char	if_bonus(const char *format, char flag, int *i_cnt_isflag)
-{
-	if (*format == '-' || *format == '0' || *format == '.'
-		|| *format == '#' || *format == ' ' || *format == '+')
-	{
-		if (flag == '+')
-			i_cnt_isflag[3] = 1;
-		if (flag == '#' || flag == ' ')
-			i_cnt_isflag[3] = 2;
-		flag = *format;
-		i_cnt_isflag[2] = 1;
-		if (*format == '-' || *format == '0' || *format == '.')
-			i_cnt_isflag[1] = flags_bonus(format, *format);
-	}
-	else if (*format >= '1' && *format <= '9')
-	{
-		if (flag == '+')
-			i_cnt_isflag[3] = 1;
-		if (flag == '#' || flag == ' ')
-			i_cnt_isflag[3] = 2;
-		flag = 'L';
-		i_cnt_isflag[2] = 1;
-		i_cnt_isflag[1] = flags_bonus(format, flag);
-	}
-	return (flag);
-}
-
-char	ft_format(va_list arg, const char *format, char flag, int *i_ct_isfg)
-{
-	if (*format == '%')
+		else
+		{
+			i = ft_putchr(*format);
+			if (i == -1)
+				return (-1);
+			i_all += i;
+		}
 		format++;
-	if (*format == 'c')
-		i_ct_isfg[0] += ft_putchr_format(va_arg(arg, int), i_ct_isfg, flag);
-	else if (*format == 's')
-		i_ct_isfg[0] += ft_putstr(va_arg(arg, char *), i_ct_isfg, flag);
-	else if (*format == 'p')
-		i_ct_isfg[0] += ft_putpointer(va_arg(arg, void *), i_ct_isfg, flag);
-	else if (*format == 'd' || *format == 'i')
-		i_ct_isfg[0] += ft_putnbr(va_arg(arg, int), i_ct_isfg, flag);
-	else if (*format == 'u')
-		i_ct_isfg[0] += ft_pt_un(va_arg(arg, unsigned int), i_ct_isfg, flag);
-	else if (*format == 'x')
-		i_ct_isfg[0] += ft_hxlwr(va_arg(arg, unsigned int), i_ct_isfg, flag);
-	else if (*format == 'X')
-		i_ct_isfg[0] += ft_hxupr(va_arg(arg, unsigned int), i_ct_isfg, flag);
-	else if (*format == '%')
-		i_ct_isfg[0] += ft_putchr('%');
-	else
-		flag = if_bonus(format, flag, i_ct_isfg);
-	flag = check_after_bonus(flag, i_ct_isfg);
-	return (flag);
+	}
+	return (i_all);
 }
 
 int	ft_printf(const char *format, ...)
 {
 	va_list	arg;
-	char	flag;
-	int		i_cnt_isflag[4];
+	int		i_all;
 
-	flag = '\0';
-	while ((int)flag < 4)
-		i_cnt_isflag[(int)flag++] = 0;
+	if (!format)
+		return (-1);
+	i_all = 0;
 	va_start(arg, format);
-	while (*format)
-	{
-		if (*format == '%' || i_cnt_isflag[2])
-		{
-			flag = ft_format(arg, format, flag, i_cnt_isflag);
-			if (*format == '%')
-				format++;
-		}
-		else
-			i_cnt_isflag[0] += ft_putchr(*format);
-		format++;
-		if (i_cnt_isflag[1])
-			while (*format >= '0' && *format <= '9')
-				format++;
-	}
+	i_all = ft_while_format(arg, format);
 	va_end (arg);
-	return (i_cnt_isflag[0]);
+	return (i_all);
 }

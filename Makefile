@@ -3,7 +3,7 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 SRC = ft_print_chr.c ft_print_int.c ft_print_str.c ft_printf.c ft_print_pointer.c \
-	ft_print_u.c ft_print_hex_lowercase.c ft_print_hex_uppercase.c ft_bonus.c 
+	ft_print_u.c ft_print_hex_lowercase.c ft_print_hex_uppercase.c 
 
 OBGS = $(SRC:.c=.o)
 
@@ -23,6 +23,4 @@ fclean: clean
 
 re: fclean all
 
-bonus: all
-
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re

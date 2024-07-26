@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_pointer.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aal-hawa <aal-hawa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Anas Al Hawamda <aal-hawa@student.42abu    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 17:23:52 by Anas Al Haw       #+#    #+#             */
-/*   Updated: 2024/07/25 17:31:02 by aal-hawa         ###   ########.fr       */
+/*   Updated: 2024/07/26 16:50:51 by Anas Al Haw      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,52 +31,18 @@ int	put_hex_pointer(unsigned long long n, int *i)
 	return (*i);
 }
 
-int	len_itoa_16(unsigned long long n)
-{
-	int	len;
-
-	len = 0;
-	if (n == 0)
-		return (1);
-	while (n > 0)
-	{
-		len++;
-		n /= 16;
-	}
-	return (len);
-}
-
-int	ptr_nil(int *i_ct_isfg, char flag, int i)
-{
-	i += bonus_befor_wr(5, i_ct_isfg, flag, 1);
-	i += ft_putstr("0x0", 0, 0);
-	i = bonus_after_wr(i_ct_isfg, flag, i);
-	return (i);
-}
-
-int	ft_putpointer(void *ptr, int *i_ct_isfg, char flag)
+int	ft_putpointer(void *ptr)
 {
 	unsigned long long	address;
 	int					i;
 
 	i = 0;
 	if (!ptr)
-		return (ptr_nil(i_ct_isfg, flag, i));
+		return (i += ft_putstr("0x0"));
 	address = (unsigned long long) ptr;
-	if ((flag == '0' || flag == '.'))
-	{
-		i += ft_putstr("0x", i_ct_isfg, 0);
-		if ((flag == '0' || flag == '.'))
-			i += bonus_befor_wr((len_itoa_16(address)), i_ct_isfg, flag, 1);
-	}
-	else
-	{
-		i += bonus_befor_wr((len_itoa_16(address) + 2), i_ct_isfg, flag, 1);
-		i += ft_putstr("0x", i_ct_isfg, 0);
-	}
+	i += ft_putstr("0x");
 	if (address == 0)
 		return (i + ft_putchr('0'));
 	i = put_hex_pointer(address, &i);
-	i = bonus_after_wr(i_ct_isfg, flag, i);
 	return (i);
 }

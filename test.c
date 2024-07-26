@@ -1,13 +1,12 @@
 #include "ft_printf.h"
-#include <limits.h>
 
 int main()
 {
-	// int nmb = 42949;
-	// char *str = "hi";
-	// char c = 'a';
-	// char *jhj = "%s";
-	ft_printf("%d\n", ft_printf("%10d +10--+ cds#  hello %s", -12, "tst"));
-	printf("%d\n", printf("%10d +10--#  hello %s", -12, "tst"));
+	int nmb = 42949;
+	char *str = NULL;
+	char c = 'a';
+	char *jhj = "my %s%c bad";
+	printf("\t\t%d\n", printf(jhj, str, c));
+	printf("\t\t%d\n", ft_printf(jhj ,str, c));
 	return (0);
 }
