@@ -6,7 +6,7 @@
 /*   By: Anas Al Hawamda <aal-hawa@student.42abu    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 17:23:52 by Anas Al Haw       #+#    #+#             */
-/*   Updated: 2024/07/26 21:39:03 by Anas Al Haw      ###   ########.fr       */
+/*   Updated: 2024/07/26 21:46:39 by Anas Al Haw      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	put_hex_pointer(unsigned long long n, int *i)
 {
 	char	c;
-	int	check;
+	int		check;
 
 	check = 0;
 	if (n > 15 && *i != -1)
