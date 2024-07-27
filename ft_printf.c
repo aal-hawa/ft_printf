@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Anas Al Hawamda <aal-hawa@student.42abu    +#+  +:+       +#+        */
+/*   By: aal-hawa <aal-hawa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 14:47:14 by Anas Al Haw       #+#    #+#             */
-/*   Updated: 2024/07/26 17:06:28 by Anas Al Haw      ###   ########.fr       */
+/*   Updated: 2024/07/27 17:34:13 by aal-hawa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,6 @@ int	ft_printf(const char *format, ...)
 	va_list	arg;
 	int		i_all;
 
-	if (!format)
-		return (-1);
 	i_all = 0;
 	va_start(arg, format);
 	i_all = ft_while_format(arg, format);

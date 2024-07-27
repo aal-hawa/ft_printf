@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Anas Al Hawamda <aal-hawa@student.42abu    +#+  +:+       +#+        */
+/*   By: aal-hawa <aal-hawa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 14:50:05 by Anas Al Haw       #+#    #+#             */
-/*   Updated: 2024/07/26 15:55:18 by Anas Al Haw      ###   ########.fr       */
+/*   Updated: 2024/07/27 17:23:28 by aal-hawa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 # define FT_PRINTF_H
 
 # include <unistd.h>
-# include <stdio.h>
-# include <stdlib.h>
 # include <stdarg.h>
 
 int	ft_putstr(char *s);

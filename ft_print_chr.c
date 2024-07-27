@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_chr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Anas Al Hawamda <aal-hawa@student.42abu    +#+  +:+       +#+        */
+/*   By: aal-hawa <aal-hawa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 18:26:22 by Anas Al Haw       #+#    #+#             */
-/*   Updated: 2024/07/26 15:29:44 by Anas Al Haw      ###   ########.fr       */
+/*   Updated: 2024/07/27 16:49:46 by aal-hawa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,9 @@
 
 int	ft_putchr(char c)
 {
-	return (write(1, &c, 1));
+	int	check;
+
+	check = 0;
+	check = write(1, &c, 1);
+	return (check);
 }
